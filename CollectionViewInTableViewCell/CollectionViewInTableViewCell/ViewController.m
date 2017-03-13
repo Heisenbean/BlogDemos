@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "MyTableViewCell.h"
-@interface ViewController ()
+#import "MyCollectionViewCell.h"
+@interface ViewController () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (strong,nonatomic) NSMutableArray *datas;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -57,6 +58,28 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     return  [cell rowHeight:self.datas[indexPath.row]];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(MyTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+        [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];    
+}
+
+
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    NSDictionary *dic = self.datas[[(PhotoCollectionView *)collectionView indexPath].row];
+    NSArray *images = dic[@"images"];
+    return images.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *dic = self.datas[[(PhotoCollectionView *)collectionView indexPath].row];
+
+    MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    NSArray *images = dic[@"images"];
+    cell.imageName = images[indexPath.row];
+    return cell;
 }
 
 @end

@@ -9,7 +9,9 @@
 #import "MyTableViewCell.h"
 #import "MyCollectionViewCell.h"
 #define photoMargin 5
+@implementation PhotoCollectionView
 
+@end
 @implementation MyTableViewCell
 
 - (void)awakeFromNib {
@@ -54,26 +56,24 @@
 - (CGFloat)rowHeight:(NSDictionary *)data{
     self.data = data;
     [self layoutIfNeeded];
-    CGFloat height = CGRectGetMaxY(self.collectionView.frame);
-    return height;
+    NSArray *images  = data[@"images"];
+    if (images.count == 0) {
+        return CGRectGetMaxY(self.myContent.frame);
+    }else{
+        return CGRectGetMaxY(self.collectionView.frame);
+    }
+}
+
+- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate indexPath:(NSIndexPath *)indexPath
+{
+    self.collectionView.dataSource = dataSourceDelegate;
+    self.collectionView.delegate = dataSourceDelegate;
+    self.collectionView.indexPath = indexPath;
+    [self.collectionView setContentOffset:self.collectionView.contentOffset animated:NO];
+    [self.collectionView reloadData];
 }
 
 
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSArray *images = self.data[@"images"];
-    return images.count;
-}
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *images = self.data[@"images"];
-     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.imageName = images[indexPath.row];
-    return cell;
-}
 
-#pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
 @end
