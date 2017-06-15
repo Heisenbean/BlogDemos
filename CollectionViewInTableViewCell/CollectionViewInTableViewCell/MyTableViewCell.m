@@ -8,7 +8,7 @@
 
 #import "MyTableViewCell.h"
 #import "MyCollectionViewCell.h"
-#define photoMargin 5
+#define photoMargin 6
 @implementation PhotoCollectionView
 
 @end
@@ -18,17 +18,12 @@
     [super awakeFromNib];
     _myTitle.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 20;
     _myContent.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 20;
-    CGFloat size = ([UIScreen mainScreen].bounds.size.width - 20 - photoMargin * 2) / 3;
-    self.layout.itemSize = CGSizeMake(size,size);
-    self.layout.minimumLineSpacing = photoMargin;
-    self.layout.minimumInteritemSpacing = photoMargin;
 }
 
 - (void)setData:(NSDictionary *)data{
     _data = data;
     _myTitle.text = data[@"title"];
     _myContent.text = data[@"content"];
-//    [self setCollectionViewSize:data];
 }
 
 - (void)layoutSubviews{
@@ -43,7 +38,9 @@
     if (images.count == 0) {
             self.collectionViewHeightConst.constant = 0;
     }else{
-        if (images.count <= 3) {    // 1 line
+        if (images.count == 1) {
+            self.collectionViewHeightConst.constant = singlePhotoSize * 2 + photoMargin;
+        }else if (images.count == 3 && images.count == 2) {    // 1 line
             self.collectionViewHeightConst.constant = singlePhotoSize;
         }else if(images.count > 3 && images.count <= 6){ // 2 line
             self.collectionViewHeightConst.constant = singlePhotoSize * 2 + photoMargin;
@@ -63,6 +60,7 @@
         return CGRectGetMaxY(self.collectionView.frame);
     }
 }
+
 
 - (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate indexPath:(NSIndexPath *)indexPath
 {

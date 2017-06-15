@@ -7,9 +7,17 @@
 //
 
 #import "MyCollectionViewCell.h"
-
+#import "UIImageView+BetterFace.h"
 @implementation MyCollectionViewCell
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+}
+
 - (void)setImageName:(NSString *)imageName{
+//    [_myImageView setContentMode:UIViewContentModeScaleAspectFill];
+//    [_myImageView setNeedsBetterFace:YES];
+//    [_myImageView setFast:YES];
     [_myImageView setImage:[UIImage imageNamed:imageName]];
 }
 @end
