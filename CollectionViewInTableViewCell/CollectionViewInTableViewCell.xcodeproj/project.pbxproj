@@ -10,6 +10,7 @@
 		35A7B7531EF2290C0087BBAD /* UIImage+BetterFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B7501EF2290C0087BBAD /* UIImage+BetterFace.m */; };
 		35A7B7541EF2290C0087BBAD /* UIImageView+BetterFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B7521EF2290C0087BBAD /* UIImageView+BetterFace.m */; };
 		35A7B7571EF229A80087BBAD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A7B7561EF229A80087BBAD /* CoreImage.framework */; };
+		35A7B7911EF269330087BBAD /* UIView+LayoutMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B7901EF269330087BBAD /* UIView+LayoutMethods.m */; };
 		35D44AB91E769E3400519775 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D44AB81E769E3400519775 /* main.m */; };
 		35D44ABC1E769E3400519775 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D44ABB1E769E3400519775 /* AppDelegate.m */; };
 		35D44AC21E769E3400519775 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D44AC01E769E3400519775 /* Main.storyboard */; };
@@ -27,6 +28,8 @@
 		35A7B7511EF2290C0087BBAD /* UIImageView+BetterFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+BetterFace.h"; sourceTree = "<group>"; };
 		35A7B7521EF2290C0087BBAD /* UIImageView+BetterFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+BetterFace.m"; sourceTree = "<group>"; };
 		35A7B7561EF229A80087BBAD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		35A7B78F1EF269330087BBAD /* UIView+LayoutMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutMethods.h"; sourceTree = "<group>"; };
+		35A7B7901EF269330087BBAD /* UIView+LayoutMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutMethods.m"; sourceTree = "<group>"; };
 		35D44AB41E769E3400519775 /* CollectionViewInTableViewCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewInTableViewCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D44AB81E769E3400519775 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		35D44ABA1E769E3400519775 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				35A7B74E1EF2290C0087BBAD /* BetterFaceClass */,
 				35D44ABA1E769E3400519775 /* AppDelegate.h */,
 				35D44ABB1E769E3400519775 /* AppDelegate.m */,
+				35A7B78F1EF269330087BBAD /* UIView+LayoutMethods.h */,
+				35A7B7901EF269330087BBAD /* UIView+LayoutMethods.m */,
 				35D44ACE1E769E4900519775 /* ViewController.h */,
 				35D44ACF1E769E4900519775 /* ViewController.m */,
 				35D44AD01E769E4900519775 /* MyTableViewCell.h */,
@@ -201,6 +206,7 @@
 				35D44AB91E769E3400519775 /* main.m in Sources */,
 				35A7B7531EF2290C0087BBAD /* UIImage+BetterFace.m in Sources */,
 				35D44AD61E769E4900519775 /* MyCollectionViewCell.m in Sources */,
+				35A7B7911EF269330087BBAD /* UIView+LayoutMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

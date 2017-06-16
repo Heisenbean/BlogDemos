@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "MyTableViewCell.h"
 #import "MyCollectionViewCell.h"
-#define photoMargin 5
+#define photoMargin 6
 @interface ViewController () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (strong,nonatomic) NSMutableArray *datas;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -84,7 +84,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat size = ([UIScreen mainScreen].bounds.size.width - 20 - photoMargin * 2) / 3;
+    CGFloat size = ([UIScreen mainScreen].bounds.size.width - 30 - photoMargin * 2) / 3;
     NSDictionary *dic = self.datas[[(PhotoCollectionView *)collectionView indexPath].row];
     NSArray *images = dic[@"images"];
     if (images.count == 1) {
@@ -95,7 +95,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return photoMargin;
+    return photoMargin - 1;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
