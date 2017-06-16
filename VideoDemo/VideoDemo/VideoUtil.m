@@ -17,7 +17,10 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     if ([link containsString:@"qq."]) {
-        NSString *imageUrl = [NSString stringWithFormat:@"http://vpic.video.qq.com/%ld/%@.png",[self getPictureIdFromLink:link],[self getTencentVideoCidAndVidsFromLink:link].lastObject];
+        
+        NSInteger pid = [self getPictureIdFromLink:link];
+        NSString *cid = [self getTencentVideoCidAndVidsFromLink:link].lastObject;
+        NSString *imageUrl = [NSString stringWithFormat:@"http://vpic.video.qq.com/%ld/%@.png",pid,cid];
         dic[@"image"] = imageUrl;
         
         NSArray *array = [self getTencentVideoCidAndVidsFromLink:link];
